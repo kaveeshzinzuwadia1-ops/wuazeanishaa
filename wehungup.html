@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Open When... We Just Hung Up</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;family=Noto+Sans:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          theme: {
+            extend: {
+              colors: {
+                "cream": "#FDFBF7",
+                "dusty-rose": "#E2B4BD",
+                "rose-gold": "#D4A373",
+                "sage-green": "#9DB4A9",
+                "charcoal": "#363636",
+                "dark-rose": "#7D5A5A",
+              },
+              fontFamily: {
+                "display": ["Newsreader", "serif"],
+                "sans": ["Noto Sans", "sans-serif"]
+              },
+              borderRadius: {"DEFAULT": "1.25rem", "lg": "2.25rem", "xl": "3.25rem", "full": "9999px"},
+            },
+          },
+        }
+    </script>
+<style type="text/tailwindcss">
+        .glass-card {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(212, 163, 115, 0.25);
+            box-shadow: 0 4px 24px 0 rgba(125, 90, 90, 0.08);
+        }
+        .bg-gradient-pastel {
+            background: linear-gradient(135deg, #FDFBF7 0%, #F5E6E8 50%, #E2B4BD 100%);
+        }
+        .floating-dust {
+            position: absolute;
+            background: #E2B4BD;
+            border-radius: 50%;
+            opacity: 0.3;
+            pointer-events: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-cream font-display overflow-hidden selection:bg-dusty-rose/30 text-charcoal">
+<div class="fixed inset-0 bg-gradient-pastel z-0">
+<div class="floating-dust w-2 h-2 top-1/4 left-1/4 blur-sm"></div>
+<div class="floating-dust w-3 h-3 top-3/4 left-1/3 blur-md opacity-20"></div>
+<div class="floating-dust w-2 h-2 top-1/2 left-2/3 blur-sm"></div>
+<div class="floating-dust w-4 h-4 top-1/3 left-3/4 blur-lg opacity-10"></div>
+</div>
+<div class="relative z-10 flex flex-col min-h-screen max-w-md mx-auto">
+<header class="flex items-center p-4 pb-2 justify-between">
+<div aria-label="Back" class="text-dark-rose/60 flex size-12 shrink-0 items-center cursor-pointer">
+<span class="material-symbols-outlined text-2xl">arrow_back_ios</span>
+</div>
+<h2 class="text-dark-rose/80 text-lg font-medium leading-tight tracking-[-0.015em] flex-1 text-center pr-12 opacity-60">Open When...</h2>
+</header>
+<main class="flex-1 flex flex-col items-center justify-center px-6">
+<div class="glass-card rounded-xl p-10 text-center max-w-sm border-rose-gold/20">
+<h2 class="text-charcoal tracking-tight text-[26px] font-medium leading-[1.4] pb-6">
+                The silence feels a little louder now, but my heart is still full of your voice.
+            </h2>
+<p class="text-dark-rose/70 text-base font-normal leading-relaxed">
+                I’m already counting down until I hear it again. Sleep well, my love.
+            </p>
+<div class="mt-8 flex flex-col items-center">
+<p class="text-rose-gold/50 text-[10px] uppercase tracking-[0.2em] mb-4">Lingering Presence</p>
+<div class="w-px h-12 bg-gradient-to-b from-rose-gold/40 to-transparent"></div>
+</div>
+</div>
+<div class="mt-10 flex flex-col items-center gap-3">
+<button onclick="window.location.href='vr.html'" class="flex items-center justify-center size-16 rounded-full glass-card border border-sage-green/40 text-sage-green hover:bg-sage-green/10 active:scale-95 transition-all duration-300 shadow-sm">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'wght' 300;">mic</span>
+</button>
+<span class="text-dark-rose/40 text-[10px] uppercase tracking-widest font-semibold">Record a voice note</span>
+</div>
+<div class="flex px-4 pt-10 pb-6 justify-center">
+<button class="flex min-w-[100px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 px-8 bg-white/40 text-dark-rose gap-2 border border-rose-gold/20 hover:bg-white/60 transition-colors">
+<div class="text-dusty-rose flex items-center justify-center">
+<span class="material-symbols-outlined fill-[1]" style="font-variation-settings: 'FILL' 1;">favorite</span>
+</div>
+<span class="truncate tracking-widest text-xs font-bold uppercase">Goodnight</span>
+</button>
+</div>
+</main>
+<footer class="px-4 pb-8">
+<div class="px-2">
+<audio id="audioPlayer" src="Only_spotdown.org.mp3"></audio>
+<div class="flex flex-col gap-3 rounded-2xl glass-card px-6 py-4 border-white/40 shadow-xl">
+<div class="flex items-center gap-4 overflow-hidden">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-12 shrink-0 border border-sage-green/20" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAt3FQDtOEdNmmufqu-Nai9vbzv6LPMCc0YuAVfJCGBCg4MMwiDrQb-yHPpjMueppOipgmPTDHC3wiu-sbzSuc2CRGha25jHQCMXPW6tSQCUZ5XynTUeEv0nLzk_gVRBPsQSDGarQBDyleX8snRGzli-aUjEmIfj-nAqoBBwb5Haj5KYAgzaRWWhy6uDbGTLVwbaC9s3P_NZnO7pm6H0RXzh76uKwlCXXKxjYMl9Myozap8Uib6rkVUfWHH6082gdYXbNPHMu_T6S4j");'></div>
+<div class="flex-1 min-w-0">
+<p class="text-charcoal text-sm font-semibold leading-tight truncate">Midnight Melodies</p>
+<p class="text-sage-green text-xs font-medium leading-normal truncate">Lo-fi Piano • 432Hz</p>
+</div>
+<button id="playPauseBtn" class="flex shrink-0 items-center justify-center rounded-full size-10 bg-sage-green text-cream hover:scale-105 transition-transform shadow-md shadow-sage-green/20">
+<span id="playPauseIcon" class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</button>
+</div>
+<div class="pt-1 px-1">
+<div id="seekBar" class="flex h-1 items-center justify-center relative bg-sage-green/20 rounded-full cursor-pointer">
+<div id="seekProgress" class="absolute left-0 h-full w-0 rounded-full bg-sage-green"></div>
+<div id="seekHandle" class="absolute left-0 -top-1.5 size-4 rounded-full bg-cream border-2 border-sage-green shadow-sm"></div>
+</div>
+<div class="flex items-center justify-between mt-3 px-1">
+<p id="currentTime" class="text-dark-rose/40 text-[10px] font-bold tracking-wider">0:00</p>
+<p id="durationEl" class="text-dark-rose/40 text-[10px] font-bold tracking-wider">0:00</p>
+</div>
+</div>
+</div>
+</div>
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const audio = document.getElementById('audioPlayer');
+    const playPauseBtn = document.getElementById('playPauseBtn');
+    const playPauseIcon = document.getElementById('playPauseIcon');
+    const seekBar = document.getElementById('seekBar');
+    const seekProgress = document.getElementById('seekProgress');
+    const seekHandle = document.getElementById('seekHandle');
+    const currentTimeEl = document.getElementById('currentTime');
+    const durationEl = document.getElementById('durationEl');
+    const backBtn = document.querySelector('[aria-label="Back"]');
+
+    function formatTime(seconds) {
+        const mins = Math.floor(seconds / 60);
+        const secs = Math.floor(seconds % 60);
+        return `${mins}:${secs.toString().padStart(2, '0')}`;
+    }
+
+    playPauseBtn.addEventListener('click', function() {
+        if (audio.paused) {
+            audio.play();
+            playPauseIcon.textContent = 'pause';
+        } else {
+            audio.pause();
+            playPauseIcon.textContent = 'play_arrow';
+        }
+    });
+
+    audio.addEventListener('loadedmetadata', function() {
+        durationEl.textContent = formatTime(audio.duration);
+    });
+
+    audio.addEventListener('timeupdate', function() {
+        const percent = (audio.currentTime / audio.duration) * 100;
+        seekProgress.style.width = percent + '%';
+        seekHandle.style.left = percent + '%';
+        currentTimeEl.textContent = formatTime(audio.currentTime);
+    });
+
+    seekBar.addEventListener('click', function(e) {
+        const rect = seekBar.getBoundingClientRect();
+        const percent = (e.clientX - rect.left) / rect.width;
+        audio.currentTime = percent * audio.duration;
+    });
+
+    if (backBtn) {
+        backBtn.addEventListener('click', function() {
+            audio.pause();
+            window.location.href = 'code.html';
+        });
+    }
+});
+</script>
+<div class="h-1.5 w-32 bg-dark-rose/10 rounded-full self-center mb-4"></div>
+</div>
+
+</body></html>
