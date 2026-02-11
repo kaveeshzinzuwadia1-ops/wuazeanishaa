@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Synced Playback 'You're Sad' Reveal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#3ce619",
+                        "background-light": "#f6f8f6",
+                        "background-dark": "#142111",
+                        "rose-glow": "#e2a9a9",
+                    },
+                    fontFamily: {
+                        "display": ["Newsreader", "serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(167, 184, 164, 0.1);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+        }
+        .main-card {
+            border: 1px solid rgba(167, 184, 164, 0.2);
+        }
+        .bokeh-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+            background: radial-gradient(circle at 50% 50%, #1a2a16 0%, #0d140b 100%);
+        }
+        .bokeh {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.12;
+            background: #e2a9a9;
+        }
+        @keyframes pulse-glow {
+            0%, 100% { opacity: 0.6; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.05); filter: brightness(1.2); }
+        }
+        @keyframes bar-pulse {
+            0%, 100% { box-shadow: 0 0 10px rgba(60, 230, 25, 0.4); }
+            50% { box-shadow: 0 0 20px rgba(60, 230, 25, 0.8); }
+        }
+        .pulsate-heart {
+            animation: pulse-glow 3s ease-in-out infinite;
+        }
+        .pulsate-bar {
+            animation: bar-pulse 2s ease-in-out infinite;
+        }
+        body {
+            min-height: 100dvh;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-white selection:bg-primary/30">
+<div class="bokeh-container">
+<div class="bokeh w-[300px] h-[300px] -top-10 -left-10"></div>
+<div class="bokeh w-[400px] h-[400px] top-1/2 -right-20"></div>
+<div class="bokeh w-[250px] h-[250px] bottom-20 left-1/4"></div>
+</div>
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+<div class="flex items-center p-6 pb-2 justify-between z-10">
+<div class="text-white flex size-12 shrink-0 items-center justify-start cursor-pointer">
+<span class="material-symbols-outlined text-2xl">arrow_back_ios</span>
+</div>
+<h2 class="text-white/80 text-sm font-medium leading-tight tracking-[0.2em] flex-1 text-center pr-12 uppercase">For My Love</h2>
+</div>
+<div class="flex-1 flex flex-col items-center justify-center px-8">
+<div class="w-full max-w-md">
+<div class="glass-card main-card rounded-[2.5rem] p-10 cursor-pointer group">
+<div class="flex flex-col items-center text-center gap-8">
+<div class="size-20 rounded-full bg-primary/10 flex items-center justify-center mb-2">
+<span class="material-symbols-outlined text-primary text-4xl fill-1 pulsate-heart">favorite</span>
+</div>
+<div class="space-y-6">
+<p class="text-white/95 text-2xl md:text-3xl font-medium leading-relaxed italic">
+                                "If your heart feels heavy tonight, let it rest here for a while. You don’t have to explain anything. You don’t have to be okay. I wish I could sit beside you, brush the worry from your thoughts, and remind you how deeply you’re cared for. You are safe in my love — always."
+                            </p>
+<div class="h-px w-16 bg-primary/30 mx-auto"></div>
+<p class="text-white/50 text-lg font-normal">Stay as long as you need.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<audio id="audioPlayer" src="Weightless_spotdown.org.mp3"></audio>
+
+<div class="px-8 py-10 z-10">
+<div class="glass-card flex flex-col gap-6 rounded-[2.5rem] px-6 py-7 border-white/5">
+<div class="flex items-center gap-5">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-2xl size-16 shrink-0 shadow-xl" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD2XFzuhXoOZeKXcNc3ynoC3_7J4aS-H_r_kwa50OIL89VnE_NoNWGgYBGz3TRoSuUOGyasAQ08T4JVvpK4dEp4wn4m4hGr3817tEuuL_SE7pbIsOuf7PjNPFDNl1ZCYP7v7JjRXxYRVdxoVO2ADttrwjaWNuxhWJlv8eO-w3HsjO0t2jW8_J3lxjPhVBB4MLSNOzvbV3LFxM0qO7kNPEolHyHz8ZFs73RdJGtdFkfLWpCWoMiHc80L3UerNIAT6SH_1pzjoPGys-yj");'>
+</div>
+<div class="flex-1 min-w-0">
+<p class="text-white text-lg font-bold leading-tight truncate">Calming Acoustic Track</p>
+<p class="text-primary/70 text-sm font-normal leading-normal truncate">Ambient Melodies for You</p>
+</div>
+</div>
+<div class="flex items-center justify-center gap-10">
+<button class="flex items-center justify-center text-white/50 hover:text-white transition-colors">
+<span class="material-symbols-outlined text-3xl">skip_previous</span>
+</button>
+<button id="playPauseBtn" class="flex shrink-0 items-center justify-center rounded-full size-14 bg-primary text-background-dark shadow-[0_0_25px_rgba(60,230,25,0.4)] transition-all hover:scale-105 active:scale-95">
+<span id="playPauseIcon" class="material-symbols-outlined fill-1 text-4xl">pause</span>
+</button>
+<button class="flex items-center justify-center text-white/50 hover:text-white transition-colors">
+<span class="material-symbols-outlined text-3xl">skip_next</span>
+</button>
+</div>
+<div class="px-1">
+<div class="flex h-1.5 items-center justify-center relative bg-white/10 rounded-full cursor-pointer" id="seekBar">
+<div id="seekProgress" class="absolute left-0 top-0 h-full w-[0%] bg-primary rounded-full pulsate-bar shadow-[0_0_15px_rgba(60,230,25,0.6)]"></div>
+<div id="seekHandle" class="absolute left-[0%] top-1/2 -translate-y-1/2 size-3 bg-white rounded-full shadow-lg border-2 border-primary"></div>
+</div>
+<div class="flex items-center justify-between mt-3">
+<p id="currentTime" class="text-primary font-bold text-[11px] tracking-widest uppercase">0:00</p>
+<p id="durationEl" class="text-white/40 text-[11px] font-medium tracking-widest uppercase">0:00</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const audio = document.getElementById('audioPlayer');
+    const playPauseBtn = document.getElementById('playPauseBtn');
+    const playPauseIcon = document.getElementById('playPauseIcon');
+    const seekBar = document.getElementById('seekBar');
+    const seekProgress = document.getElementById('seekProgress');
+    const seekHandle = document.getElementById('seekHandle');
+    const currentTimeEl = document.getElementById('currentTime');
+    const durationEl = document.getElementById('durationEl');
+
+    function formatTime(seconds) {
+        const mins = Math.floor(seconds / 60);
+        const secs = Math.floor(seconds % 60);
+        return `${mins}:${secs.toString().padStart(2, '0')}`;
+    }
+
+    playPauseBtn.addEventListener('click', function() {
+        if (audio.paused) {
+            audio.play();
+            playPauseIcon.textContent = 'pause';
+        } else {
+            audio.pause();
+            playPauseIcon.textContent = 'play_arrow';
+        }
+    });
+
+    audio.addEventListener('loadedmetadata', function() {
+        durationEl.textContent = formatTime(audio.duration);
+    });
+
+    audio.addEventListener('timeupdate', function() {
+        const percent = (audio.currentTime / audio.duration) * 100;
+        seekProgress.style.width = percent + '%';
+        seekHandle.style.left = percent + '%';
+        currentTimeEl.textContent = formatTime(audio.currentTime);
+    });
+
+    seekBar.addEventListener('click', function(e) {
+        const rect = seekBar.getBoundingClientRect();
+        const percent = (e.clientX - rect.left) / rect.width;
+        audio.currentTime = percent * audio.duration;
+    });
+
+    const backBtn = document.querySelector('[class*="text-white"] .material-symbols-outlined');
+    if (backBtn && backBtn.textContent === 'arrow_back_ios') {
+        backBtn.parentElement.addEventListener('click', function() {
+            window.location.href = 'code.html';
+        });
+    }
+});
+</script>
+
+</body></html>
