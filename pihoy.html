@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Gallery of You - Sophisticated Memory Collection</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#37ec13",
+                        "background-light": "#fdfdfb",
+                        "background-dark": "#132210",
+                        "sage-light": "#e2efda",
+                        "sage-dark": "#688961",
+                    },
+                    fontFamily: {
+                        "display": ["Newsreader", "serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        @layer utilities {
+            .liquid-glass {
+                background: rgba(253, 253, 251, 0.7);
+                backdrop-filter: blur(24px) saturate(180%);
+                -webkit-backdrop-filter: blur(24px) saturate(180%);
+                border-top: 1px solid rgba(255, 255, 255, 0.5);
+            }
+            .dark .liquid-glass {
+                background: rgba(19, 34, 16, 0.8);
+                backdrop-filter: blur(24px) saturate(180%);
+                -webkit-backdrop-filter: blur(24px) saturate(180%);
+                border-top: 1px solid rgba(255, 255, 255, 0.1);
+            }
+        }
+    </style>
+<style>
+        body {
+            font-family: 'Newsreader', serif;
+            min-height: max(884px, 100dvh);
+        }
+        .masonry-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-auto-rows: minmax(150px, auto);
+            gap: 1rem;
+        }
+        .masonry-item-large {
+            grid-row: span 2;
+        }
+        .premium-gradient {
+            background: linear-gradient(180deg, #fdfdfb 0%, #e2efda 100%);
+        }
+        .dark .premium-gradient {
+            background: linear-gradient(180deg, #132210 0%, #0d160a 100%);
+        }
+        .player-seek-bar {
+            height: 4px;
+            background: rgba(104, 137, 97, 0.2);
+            border-radius: 2px;
+            position: relative;
+        }
+        .player-seek-progress {
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 35%;
+            background: #688961;
+            border-radius: 2px;
+        }
+        .player-seek-handle {
+            position: absolute;
+            right: -6px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 12px;
+            height: 12px;
+            background: #688961;
+            border: 2px solid white;
+            border-radius: 50%;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark min-h-screen">
+<div class="relative flex min-h-screen w-full flex-col premium-gradient overflow-x-hidden pb-[140px]">
+<div class="flex items-center bg-transparent p-4 pb-2 justify-between">
+<div class="text-[#121811] dark:text-white flex size-12 shrink-0 items-center justify-center cursor-pointer">
+<span class="material-symbols-outlined text-[24px]">arrow_back_ios</span>
+</div>
+<h2 class="text-[#121811] dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center pr-12 font-display">Gallery of You</h2>
+</div>
+<div class="pt-8 pb-2 px-6">
+<h1 class="text-[#121811] dark:text-white tracking-tight text-[40px] font-medium leading-tight text-center font-display italic">
+                Our Beautiful Moments
+            </h1>
+</div>
+<div class="px-6 pb-6">
+<p class="text-[#688961] dark:text-sage-light/70 text-base font-normal leading-normal text-center font-display italic">
+                A curated collection of your favorite smiles
+            </p>
+</div>
+<div class="p-6">
+<div class="masonry-grid">
+<div class="masonry-item-large group relative cursor-pointer overflow-hidden rounded-xl border border-white/40 shadow-sm bg-white/20">
+<div class="aspect-[3/5] bg-cover bg-center transition-transform duration-700 group-hover:scale-105" style='background-image: url("
+");'></div>
+</div>
+<div class="group relative cursor-pointer overflow-hidden rounded-xl border border-white/40 shadow-sm bg-white/20">
+<div class="aspect-square bg-cover bg-center transition-transform duration-700 group-hover:scale-105" style='background-image: url("");'></div>
+</div>
+<div class="group relative cursor-pointer overflow-hidden rounded-xl border border-white/40 shadow-sm bg-white/20">
+<div class="aspect-[3/4] bg-cover bg-center transition-transform duration-700 group-hover:scale-105" style='background-image: url("");'></div>
+</div>
+<div class="group relative cursor-pointer overflow-hidden rounded-xl border border-white/40 shadow-sm bg-white/20"></div>
+<div class="masonry-item-large group relative cursor-pointer overflow-hidden rounded-xl border border-white/40 shadow-sm bg-white/20">
+<div class="aspect-[3/5] bg-cover bg-center transition-transform duration-700 group-hover:scale-105" style='background-image: url("IMG-20260124-WA0004.jpg");'></div>
+</div>
+<div class="group relative cursor-pointer overflow-hidden rounded-xl border border-white/40 shadow-sm bg-white/20">
+<div class="aspect-[4/3] bg-cover bg-center transition-transform duration-700 group-hover:scale-105" style='background-image: url("IMG-20260124-WA0005.jpg");'></div>
+</div>
+<div class="group relative cursor-pointer overflow-hidden rounded-xl border border-white/40 shadow-sm bg-white/20 col-span-1">
+<div class="aspect-square bg-cover bg-center transition-transform duration-700 group-hover:scale-105" style='background-image: url("IMG-20260124-WA0006.jpg");'></div>
+</div>
+<div class="group relative cursor-pointer overflow-hidden rounded-xl border border-white/40 shadow-sm bg-white/20">
+<div class="aspect-square bg-cover bg-center transition-transform duration-700 group-hover:scale-105" style='background-image: url("IMG-20260124-WA0007.jpg");'></div>
+</div>
+<div class="group relative cursor-pointer overflow-hidden rounded-xl border border-white/40 shadow-sm bg-white/20">
+<div class="aspect-square bg-cover bg-center transition-transform duration-700 group-hover:scale-105" style='background-image: url("IMG-20260127-WA0005.jpg");'></div>
+</div>
+<div class="group relative cursor-pointer overflow-hidden rounded-xl border border-white/40 shadow-sm bg-white/20">
+<div class="aspect-square bg-cover bg-center transition-transform duration-700 group-hover:scale-105" style='background-image: url("IMG-20260127-WA0007.jpg");'></div>
+</div>
+<div class="group relative cursor-pointer overflow-hidden rounded-xl border border-white/40 shadow-sm bg-white/20">
+<div class="aspect-square bg-cover bg-center transition-transform duration-700 group-hover:scale-105" style='background-image: url("IMG-20260127-WA0008.jpg");'></div>
+</div>
+</div>
+</div>
+<div class="py-12 px-6">
+<div class="flex flex-col items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sage-dark/60 text-xl">favorite</span>
+<p class="text-[#121811] dark:text-white/80 text-lg font-display italic font-medium leading-normal text-center">
+                    With Love, Always
+                </p>
+<div class="w-12 h-[1px] bg-[#688961]/30 mt-2"></div>
+</div>
+</div>
+</div>
+<div class="fixed bottom-0 left-0 right-0 z-50 liquid-glass pt-5 pb-8 px-6 shadow-[0_-10px_30px_rgba(0,0,0,0.05)]">
+<div class="max-w-md mx-auto">
+<div class="w-full flex flex-col gap-1 mb-4">
+<div class="player-seek-bar" id="seekBar">
+<div class="player-seek-progress" id="seekProgress">
+<div class="player-seek-handle"></div>
+</div>
+</div>
+<div class="flex justify-between items-center mt-1">
+<span class="text-[10px] text-sage-dark/60 dark:text-sage-light/60 font-medium" id="currentTime">0:00</span>
+<span class="text-[10px] text-sage-dark/60 dark:text-sage-light/60 font-medium" id="durationEl">0:00</span>
+</div>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="size-12 rounded-lg overflow-hidden border border-white/40 shadow-sm flex-shrink-0">
+<img alt="Album Art" class="w-full h-full object-cover" src="WhatsApp Image 2026-01-24 at 5.06.56 PM (1).jpeg">
+</div>
+<div class="flex flex-col overflow-hidden max-w-[120px] sm:max-w-[180px]">
+<span class="text-[15px] font-bold text-[#121811] dark:text-white leading-tight font-display italic truncate">Until I Found You</span>
+<span class="text-xs text-sage-dark/80 dark:text-sage-light/70 font-display truncate">Stephen Sanchez</span>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-sage-dark dark:text-sage-light p-1 hover:opacity-70 transition-opacity">
+<span class="material-symbols-outlined text-[24px]">skip_previous</span>
+</button>
+<button class="bg-sage-dark dark:bg-sage-light/30 size-11 rounded-full flex items-center justify-center text-white dark:text-sage-light shadow-md hover:scale-105 transition-transform" id="playPauseBtn">
+<span class="material-symbols-outlined text-[28px] fill-1" id="playPauseIcon">pause</span>
+</button>
+<button class="text-sage-dark dark:text-sage-light p-1 hover:opacity-70 transition-opacity">
+<span class="material-symbols-outlined text-[24px]">skip_next</span>
+</button>
+</div>
+</div>
+<div class="h-2"></div>
+</div>
+</div>
+<div class="hidden fixed inset-0 z-[60] flex items-center justify-center bg-black/80 backdrop-blur-md p-6">
+<div class="absolute top-8 right-8 text-white cursor-pointer p-2">
+<span class="material-symbols-outlined text-3xl">close</span>
+</div>
+<div class="relative max-w-lg w-full">
+<img alt="Expanded View" class="w-full rounded-2xl shadow-2xl border border-white/20" src="WhatsApp Image 2026-01-24 at 5.06.56 PM (2).jpeg">
+<div class="mt-4 text-center">
+<h3 class="text-white text-2xl font-display italic">Paris, 2023</h3>
+<p class="text-white/60 text-sm mt-1">The day we watched the sunset at Trocadéro.</p>
+</div>
+</div>
+</div>
+<audio id="audioPlayer" preload="metadata">
+  <source src="Until I Found You_spotdown.org (1).mp3" type="audio/mpeg">
+</audio>
+
+<script>
+const audio = document.getElementById("audioPlayer");
+
+const playPauseBtn = document.getElementById("playPauseBtn");
+const playPauseIcon = document.getElementById("playPauseIcon");
+
+const seekBar = document.getElementById("seekBar");
+const seekProgress = document.getElementById("seekProgress");
+
+const currentTimeEl = document.getElementById("currentTime");
+const durationEl = document.getElementById("duration");
+
+function formatTime(time) {
+  const minutes = Math.floor(time / 60);
+  const seconds = Math.floor(time % 60).toString().padStart(2, "0");
+  return `${minutes}:${seconds}`;
+}
+
+/* Load duration */
+audio.addEventListener("loadedmetadata", () => {
+  durationEl.textContent = formatTime(audio.duration);
+});
+
+/* Play / Pause */
+playPauseBtn.addEventListener("click", () => {
+  if (audio.paused) {
+    audio.play();
+    playPauseIcon.textContent = "pause";
+  } else {
+    audio.pause();
+    playPauseIcon.textContent = "play_arrow";
+  }
+});
+
+/* Timeline sync */
+audio.addEventListener("timeupdate", () => {
+  const percent = (audio.currentTime / audio.duration) * 100;
+  seekProgress.style.width = percent + "%";
+  currentTimeEl.textContent = formatTime(audio.currentTime);
+});
+
+/* Click to seek */
+seekBar.addEventListener("click", (e) => {
+  const rect = seekBar.getBoundingClientRect();
+  const clickX = e.clientX - rect.left;
+  const newTime = (clickX / rect.width) * audio.duration;
+  audio.currentTime = newTime;
+});
+
+/* Reset when finished */
+audio.addEventListener("ended", () => {
+  playPauseIcon.textContent = "play_arrow";
+  seekProgress.style.width = "0%";
+  currentTimeEl.textContent = "0:00";
+});
+</script>
+
+</body></html>

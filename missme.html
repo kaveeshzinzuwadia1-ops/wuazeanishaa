@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;family=Dancing+Script:wght@400..700&amp;family=Playfair+Display:ital,wght@0,400..900;1,400..900&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#e8305e",
+                        "envelope-cream": "#fdfaf5",
+                        "parchment": "#fdf8ef",
+                        "ink": "#2d2a2e",
+                        "wax-red": "#a31d24",
+                        "romantic-pink": "#fff1f2",
+                        "romantic-purple": "#f5f3ff",
+                    },
+                    fontFamily: {
+                        "display": ["Newsreader", "serif"],
+                        "handwritten": ["Dancing Script", "cursive"],
+                        "serif-body": ["Playfair Display", "serif"],
+                        "sans": ["Inter", "sans-serif"]
+                    }
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        @layer components {
+            .glass-card {
+                @apply bg-white/75 backdrop-blur-2xl border border-white/60;
+                box-shadow: 0 10px 25px -5px rgba(232, 48, 94, 0.05), 0 8px 15px -8px rgba(0, 0, 0, 0.08);
+            }
+            .envelope-shadow {
+                box-shadow: 0 20px 40px -10px rgba(0,0,0,0.15), 0 10px 20px -5px rgba(0,0,0,0.1);
+            }
+            .paper-texture {
+                background-image: url("https://www.transparenttextures.com/patterns/natural-paper.png");
+            }
+            .wax-seal {
+                background: radial-gradient(circle at 35% 35%, #f44336, #b71c1c);
+                box-shadow: 0 4px 10px rgba(0,0,0,0.4), inset 0 -2px 5px rgba(0,0,0,0.3);
+            }
+            .interaction-trigger { display: none; }
+            .letter-container:has(#trigger-full:checked) .letter-content-full { @apply flex; }
+            .letter-container:has(#trigger-full:checked) .envelope-closed { @apply hidden; }
+            .letter-container:has(#trigger-full:checked) .letter-content-partial { @apply hidden; }
+            .letter-container:has(#trigger-partial:checked):not(:has(#trigger-full:checked)) .letter-content-partial { @apply flex; }
+            .letter-container:has(#trigger-partial:checked):not(:has(#trigger-full:checked)) .envelope-closed { @apply hidden; }
+            .letter-container:not(:has(#trigger-partial:checked)):not(:has(#trigger-full:checked)) .envelope-closed { @apply flex; }
+            .soundwave-bar {
+                @apply w-[3px] bg-primary rounded-full;
+                animation: soundwave 1.2s ease-in-out infinite;
+            }
+        }
+        @keyframes soundwave {
+            0%, 100% { height: 4px; }
+            50% { height: 16px; }
+        }
+    </style>
+<style>
+        body {
+            min-height: 100dvh;
+            background: linear-gradient(135deg, #fef9f9 0%, #f7f1e3 50%, #f0f2f3 100%);
+            overflow-x: hidden;
+            -webkit-tap-highlight-color: transparent;
+            min-height: max(884px, 100dvh);
+        }
+        .envelope-flap-bottom { clip-path: polygon(0 100%, 50% 48%, 100% 100%); }
+        .envelope-flap-left { clip-path: polygon(0 0, 0 100%, 52% 50%); }
+        .envelope-flap-right { clip-path: polygon(100% 0, 48% 50%, 100% 100%); }
+        .envelope-flap-top { clip-path: polygon(0 0, 50% 52%, 100% 0); }
+        .heart-svg { filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2)); }
+        .nav-item-active { color: #e8305e; }
+        .nav-item-inactive { color: #57534e; }
+        .player-glass {
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(30px) saturate(180%);
+            -webkit-backdrop-filter: blur(30px) saturate(180%);
+            border-top: 1px solid rgba(255, 255, 255, 0.8);
+        }
+        .bar-1 { animation-delay: 0.1s; animation-duration: 0.8s; }
+        .bar-2 { animation-delay: 0.3s; animation-duration: 1.1s; }
+        .bar-3 { animation-delay: 0.2s; animation-duration: 0.9s; }
+        .bar-4 { animation-delay: 0.4s; animation-duration: 1.2s; }
+        .bar-5 { animation-delay: 0.15s; animation-duration: 1.0s; }
+    </style>
+  </head>
+<body class="font-display text-[#181113]">
+<header class="fixed top-0 left-0 w-full flex items-center p-4 justify-between z-[100] bg-white/60 backdrop-blur-md shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07)] border-b border-white/20">
+<a href="code.html" class="flex size-10 items-center justify-start">
+<span class="material-symbols-outlined cursor-pointer hover:text-primary transition-colors text-2xl font-light">chevron_left</span>
+</a>
+<h2 class="text-base font-semibold tracking-tight text-stone-800 uppercase">Miss You</h2>
+<div class="size-10 flex items-center justify-end">
+<span class="material-symbols-outlined cursor-pointer text-stone-500 font-light">more_horiz</span>
+</div>
+</header>
+<main class="flex flex-col items-center justify-center min-h-screen pt-16 pb-80 px-6 relative">
+<div class="letter-container relative w-full max-w-[340px] flex flex-col items-center">
+<input class="interaction-trigger" id="trigger-partial" type="checkbox"/>
+<input class="interaction-trigger" id="trigger-full" type="checkbox"/>
+<div class="envelope-closed relative w-full aspect-[4/3] z-50 flex items-center justify-center">
+<div class="absolute inset-0 bg-envelope-cream rounded-2xl envelope-shadow border border-white/60 paper-texture overflow-hidden">
+<div class="absolute inset-0 z-10">
+<div class="absolute inset-0 bg-stone-100/60 envelope-flap-bottom border-t border-stone-200/40"></div>
+<div class="absolute inset-0 bg-white/80 envelope-flap-left"></div>
+<div class="absolute inset-0 bg-white/60 envelope-flap-right"></div>
+<div class="absolute inset-0 bg-envelope-cream envelope-flap-top border-b border-stone-200/20 shadow-sm"></div>
+</div>
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20">
+<label class="cursor-pointer block group" for="trigger-partial">
+<div class="wax-seal size-20 rounded-full flex items-center justify-center relative transition-transform group-hover:scale-105 active:scale-95">
+<svg class="heart-svg w-12 h-12 text-white/20 absolute" fill="currentColor" viewBox="0 0 24 24">
+<path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"></path>
+</svg>
+<div class="z-10 flex flex-col items-center">
+<span class="material-symbols-outlined text-white text-2xl" style="font-variation-settings: 'FILL' 1, 'wght' 400">mail</span>
+<span class="text-[8px] font-bold text-white tracking-widest uppercase mt-0.5">Open</span>
+</div>
+</div>
+</label>
+</div>
+</div>
+</div>
+<div class="letter-content-partial hidden relative z-40 w-full paper-texture bg-[#fdf8ef] shadow-2xl rounded-sm border border-stone-200 p-8 pt-10 flex-col items-center animate-in slide-in-from-bottom-8 duration-700">
+<div class="absolute inset-x-0 top-0 h-4 bg-gradient-to-b from-stone-300/10 to-transparent"></div>
+<div class="w-full text-center space-y-10">
+<p class="font-handwritten text-2xl leading-relaxed text-stone-700 italic">
+If you're reading this, it means I'm not beside you right now...
+</p>
+<div class="flex flex-col items-center">
+<label class="cursor-pointer group flex flex-col items-center" for="trigger-full">
+<div class="size-14 rounded-full bg-white shadow-sm border border-stone-100 flex items-center justify-center group-active:scale-95 transition-all text-stone-400 group-hover:text-primary">
+<span class="material-symbols-outlined text-3xl font-light">expand_less</span>
+</div>
+<span class="mt-3 text-[10px] font-bold text-stone-500 uppercase tracking-widest">Read More</span>
+</label>
+</div>
+</div>
+</div>
+<div class="letter-content-full hidden relative z-40 w-full paper-texture bg-[#fdf8ef] shadow-2xl rounded-sm border border-stone-200 p-8 pt-12 flex-col items-center transition-all animate-in zoom-in-95 duration-500">
+<div class="absolute inset-x-0 top-0 h-6 bg-gradient-to-b from-stone-300/15 to-transparent"></div>
+<div class="absolute inset-3 border border-stone-300/20 pointer-events-none"></div>
+<div class="relative z-10 w-full">
+<div class="flex justify-center mb-10 opacity-40">
+<span class="material-symbols-outlined text-primary text-3xl" style="font-variation-settings: 'FILL' 1">favorite</span>
+</div>
+<p class="font-handwritten text-2xl leading-[1.8] text-stone-800 text-center max-w-[280px] mx-auto">
+If you're reading this, it means I'm not beside you right now — and I know that's hard. 
+<br/><br/>
+But I want you to remember something… you're never really alone. Every thought of you, every quiet moment, every heartbeat — I'm there in all of it. 
+<br/><br/>
+Missing someone only happens when the love is real. And I'm always right here.
+</p>
+<div class="mt-12 flex flex-col items-center gap-8">
+<div class="h-px w-20 bg-stone-300/40"></div>
+<label class="cursor-pointer group flex flex-col items-center" for="trigger-full">
+<div class="size-14 rounded-full bg-white shadow-sm border border-stone-100 flex items-center justify-center group-active:scale-95 transition-all">
+<span class="material-symbols-outlined text-stone-400 group-hover:text-primary text-2xl font-light">close</span>
+</div>
+<span class="mt-3 text-[10px] font-bold text-stone-500 uppercase tracking-widest">Close</span>
+</label>
+</div>
+</div>
+</div>
+</div>
+</main>
+<nav class="fixed bottom-40 w-full flex justify-center px-6 z-[100]">
+<div class="glass-card w-full max-w-[360px] rounded-[2.5rem] py-2 px-2 flex items-center justify-between">
+<button class="flex-1 flex flex-col items-center py-2 group transition-all">
+<span class="material-symbols-outlined nav-item-inactive group-hover:text-primary text-2xl font-light">home</span>
+<span class="text-[9px] font-bold text-stone-500 uppercase tracking-tighter mt-1 group-hover:text-primary">Home</span>
+</button>
+<button class="flex-1 flex flex-col items-center py-2 group transition-all">
+<span class="material-symbols-outlined nav-item-inactive group-hover:text-primary text-2xl font-light">auto_awesome_motion</span>
+<span class="text-[9px] font-bold text-stone-500 uppercase tracking-tighter mt-1 group-hover:text-primary">Memories</span>
+</button>
+<button class="flex-1 flex flex-col items-center py-2 group transition-all">
+<div class="bg-primary/10 rounded-full p-2 -mt-1 mb-0.5">
+<span class="material-symbols-outlined text-primary text-2xl" style="font-variation-settings: 'FILL' 1">mail</span>
+</div>
+<span class="text-[9px] font-bold text-primary uppercase tracking-tighter">Letters</span>
+</button>
+<button class="flex-1 flex flex-col items-center py-2 group transition-all">
+<span class="material-symbols-outlined nav-item-inactive group-hover:text-primary text-2xl font-light">equalizer</span>
+<span class="text-[9px] font-bold text-stone-500 uppercase tracking-tighter mt-1 group-hover:text-primary">Music</span>
+</button>
+</div>
+</nav>
+<div class="fixed bottom-0 left-0 w-full h-[155px] flex flex-col items-center justify-start player-glass z-[110] shadow-[0_-15px_40px_rgba(0,0,0,0.08)] border-t border-white/50">
+<div class="w-full px-6 pt-4">
+<div class="relative w-full h-1.5 bg-stone-200/60 rounded-full mb-2 group cursor-pointer" id="seekBar">
+<div class="absolute left-0 top-0 h-full w-0 bg-primary rounded-full relative" id="seekProgress">
+<div class="absolute right-0 top-1/2 -translate-y-1/2 size-3.5 bg-primary rounded-full shadow-md border-2 border-white ring-2 ring-primary/20"></div>
+</div>
+</div>
+<div class="flex items-center justify-between px-0.5 mb-2.5">
+<span class="text-[11px] font-bold text-primary font-sans tracking-wide" id="currentTime">0:00</span>
+<span class="text-[11px] font-semibold text-stone-400 font-sans tracking-wide" id="durationEl">0:00</span>
+</div>
+</div>
+<div class="flex items-center justify-between px-6 w-full max-w-md gap-3">
+<div class="flex items-center gap-4 flex-1 min-w-0">
+<div class="size-14 flex-shrink-0 rounded-xl overflow-hidden shadow-lg ring-1 ring-black/5">
+<img alt="Album Art" class="size-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAyCYc40-lhaMj_bPz1E70z7bMMExx6t5QYm_nYZ-8SG89mn39dU0DFLikA2AkFF6nKwZ0ouOdWH3llGEgRj0V8grshpRoczhWxM6Z_PM6EQF7pK5zapNnTEwIGvkzW-iepmtzirm64NpGLxldk-VFwq9uhUFzR73e3o-xB-R69PBGPffs85KK3k__ds_idbZQc95CYjaiZCPOUQ9jFJc5APHmo5kEt_Xsv8cCt60sR4dr8VBQ8PPjK4uSLz132CQAFg8099u2Yx_I7"/>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-2.5">
+<span class="text-[17px] font-bold text-stone-900 tracking-tight truncate leading-tight">Lover</span>
+<div class="flex items-end gap-[3px] h-4 pb-1">
+<div class="soundwave-bar bar-1"></div>
+<div class="soundwave-bar bar-2"></div>
+<div class="soundwave-bar bar-3"></div>
+<div class="soundwave-bar bar-4"></div>
+<div class="soundwave-bar bar-5"></div>
+</div>
+</div>
+<span class="text-[13px] font-medium text-stone-500 truncate">Taylor Swift</span>
+</div>
+</div>
+<div class="flex items-center gap-5 flex-shrink-0">
+<button class="material-symbols-outlined text-stone-700 hover:text-primary transition-colors text-2xl active:scale-90" style="font-variation-settings: 'FILL' 1">skip_previous</button>
+<button class="size-14 rounded-full bg-primary flex items-center justify-center shadow-lg shadow-primary/30 active:scale-95 transition-all" id="playPauseBtn">
+<span class="material-symbols-outlined text-white text-3xl" id="playPauseIcon" style="font-variation-settings: 'FILL' 1">pause</span>
+</button>
+<button class="material-symbols-outlined text-stone-700 hover:text-primary transition-colors text-2xl active:scale-90" style="font-variation-settings: 'FILL' 1">skip_next</button>
+</div>
+</div>
+<div class="mt-auto mb-2">
+<div class="w-32 h-1.5 bg-stone-900/10 rounded-full"></div>
+</div>
+</div>
+
+<audio id="audioPlayer" preload="metadata">
+  <source src="SpotiDownloader.com - Lover - Taylor Swift.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const audio = document.getElementById("audioPlayer");
+  const playPauseBtn = document.getElementById("playPauseBtn");
+  const playPauseIcon = document.getElementById("playPauseIcon");
+  const seekBar = document.getElementById("seekBar");
+  const seekProgress = document.getElementById("seekProgress");
+  const currentTimeEl = document.getElementById("currentTime");
+  const durationEl = document.getElementById("durationEl");
+
+  function formatTime(time) {
+    if (!isFinite(time)) return "0:00";
+    const minutes = Math.floor(time / 60);
+    const seconds = Math.floor(time % 60).toString().padStart(2, "0");
+    return `${minutes}:${seconds}`;
+  }
+
+  // Load duration when metadata is available
+  audio.addEventListener("loadedmetadata", () => {
+    durationEl.textContent = formatTime(audio.duration);
+  });
+
+  // Handle Play/Pause button click
+  playPauseBtn.addEventListener("click", () => {
+    if (audio.paused) {
+      audio.play().catch(err => console.error("Play error:", err));
+      playPauseIcon.textContent = "pause";
+    } else {
+      audio.pause();
+      playPauseIcon.textContent = "play_arrow";
+    }
+  });
+
+  // Timeline sync - update progress bar as song plays
+  audio.addEventListener("timeupdate", () => {
+    if (audio.duration && isFinite(audio.duration)) {
+      const percent = (audio.currentTime / audio.duration) * 100;
+      seekProgress.style.width = percent + "%";
+      currentTimeEl.textContent = formatTime(audio.currentTime);
+    }
+  });
+
+  // Click on timeline to seek
+  seekBar.addEventListener("click", (e) => {
+    const rect = seekBar.getBoundingClientRect();
+    const clickX = e.clientX - rect.left;
+    const percent = clickX / rect.width;
+    if (audio.duration && isFinite(audio.duration)) {
+      audio.currentTime = percent * audio.duration;
+    }
+  });
+
+  // Reset when song finishes
+  audio.addEventListener("ended", () => {
+    playPauseIcon.textContent = "play_arrow";
+    seekProgress.style.width = "0%";
+    currentTimeEl.textContent = "0:00";
+  });
+
+  // Set initial duration if already loaded
+  if (audio.readyState >= 1) {
+    durationEl.textContent = formatTime(audio.duration);
+  }
+});
+</script>
+
+</body></html>

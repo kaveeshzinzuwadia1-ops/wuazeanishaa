@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Our Shared Dreams Bucket List</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ec1349",
+                        "background-light": "#fdfaf9",
+                        "background-dark": "#221015",
+                        "sage": "#7d907f",
+                        "dusty-rose": "#d6a19e",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .liquid-glass {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            border-top: 1px solid rgba(255, 255, 255, 0.5);
+        }
+        .dark .liquid-glass {
+            background: rgba(34, 16, 21, 0.9);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .heart-checkbox:checked {
+            filter: drop-shadow(0 0 8px #ec1349);
+        }
+        input[type="range"] {
+            -webkit-appearance: none;
+            appearance: none;
+            background: transparent;
+            cursor: pointer;
+        }
+        input[type="range"]::-webkit-slider-runnable-track {
+            background: #e5e7eb;
+            height: 4px;
+            border-radius: 2px;
+        }
+        .dark input[type="range"]::-webkit-slider-runnable-track {
+            background: rgba(255,255,255,0.1);
+        }
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            margin-top: -6px;
+            background-color: #7d907f;
+            height: 16px;
+            width: 16px;
+            border-radius: 50%;
+            border: 2px solid white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-[#181113] dark:text-white transition-colors duration-300 min-h-screen">
+<div class="relative flex h-auto min-h-screen w-full flex-col overflow-x-hidden max-w-md mx-auto shadow-2xl bg-white dark:bg-background-dark">
+<div class="sticky top-0 z-50 flex items-center bg-white/80 dark:bg-background-dark/80 backdrop-blur-md p-4 pb-2 justify-between">
+<div class="text-[#181113] dark:text-white flex size-12 shrink-0 items-center justify-start">
+<span class="material-symbols-outlined">arrow_back_ios</span>
+</div>
+<h2 class="text-[#181113] dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center">Shared Dreams</h2>
+<div class="flex w-12 items-center justify-end">
+<button class="flex cursor-pointer items-center justify-center rounded-xl h-12 bg-transparent text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1">favorite</span>
+</button>
+</div>
+</div>
+<div class="@container">
+<div class="p-4">
+<div class="flex min-h-[400px] flex-col gap-6 bg-cover bg-center bg-no-repeat rounded-xl items-center justify-center p-6 relative overflow-hidden" style="background: linear-gradient(135deg, #fce7f3 0%, #fee2e2 100%);">
+<div class="absolute inset-0 opacity-20 pointer-events-none" style="background-image: radial-gradient(circle at 2px 2px, #ec1349 1px, transparent 0); background-size: 24px 24px;"></div>
+<div class="flex flex-col gap-3 text-center z-10">
+<h1 class="text-[#181113] text-4xl font-black leading-tight tracking-[-0.033em]">Distance is just a test...</h1>
+<h2 class="text-[#89616b] text-base font-medium leading-normal italic">to see how far love can travel.</h2>
+</div>
+</div>
+</div>
+</div>
+<div class="px-4 space-y-8 pb-48">
+<section>
+<div class="flex items-center justify-between">
+<h2 class="text-[#181113] dark:text-white text-[22px] font-bold leading-tight tracking-[-0.015em] py-4">Lazy Days</h2>
+<span class="text-xs font-semibold text-sage bg-sage/10 px-2 py-1 rounded-full uppercase tracking-wider">Cozy</span>
+</div>
+<div class="grid gap-3">
+<div class="glass-card flex items-center gap-4 px-4 min-h-[80px] py-3 justify-between rounded-xl dark:bg-white/5">
+<div class="flex items-center gap-4">
+<div class="text-sage flex items-center justify-center rounded-lg bg-sage/10 shrink-0 size-12">
+<span class="material-symbols-outlined">cloud</span>
+</div>
+<div class="flex flex-col justify-center">
+<p class="text-[#181113] dark:text-white text-base font-bold leading-tight">Cloud Watching</p>
+<p class="text-[#89616b] dark:text-[#a07c85] text-sm font-normal leading-tight mt-1">Finding shapes in the sky while holding your hand.</p>
+</div>
+</div>
+<div class="shrink-0">
+<label class="relative flex cursor-pointer items-center justify-center">
+<input class="heart-checkbox peer sr-only" type="checkbox"/>
+<span class="material-symbols-outlined text-[#e6dbde] peer-checked:text-primary transition-all duration-300 text-3xl hover:scale-110 active:scale-90" style="font-variation-settings: 'FILL' 1">favorite</span>
+</label>
+</div>
+</div>
+<div class="glass-card flex items-center gap-4 px-4 min-h-[80px] py-3 justify-between rounded-xl dark:bg-white/5">
+<div class="flex items-center gap-4">
+<div class="text-dusty-rose flex items-center justify-center rounded-lg bg-dusty-rose/10 shrink-0 size-12">
+<span class="material-symbols-outlined">coffee</span>
+</div>
+<div class="flex flex-col justify-center">
+<p class="text-[#181113] dark:text-white text-base font-bold leading-tight">Coffee in Bed</p>
+<p class="text-[#89616b] dark:text-[#a07c85] text-sm font-normal leading-tight mt-1">Waking up slowly to the smell of brew and your smile.</p>
+</div>
+</div>
+<div class="shrink-0">
+<label class="relative flex cursor-pointer items-center justify-center">
+<input class="heart-checkbox peer sr-only" type="checkbox"/>
+<span class="material-symbols-outlined text-[#e6dbde] peer-checked:text-primary transition-all duration-300 text-3xl hover:scale-110 active:scale-90" style="font-variation-settings: 'FILL' 1">favorite</span>
+</label>
+</div>
+</div>
+<div class="glass-card flex items-center gap-4 px-4 min-h-[80px] py-3 justify-between rounded-xl dark:bg-white/5">
+<div class="flex items-center gap-4">
+<div class="text-sage flex items-center justify-center rounded-lg bg-sage/10 shrink-0 size-12">
+<span class="material-symbols-outlined">directions_car</span>
+</div>
+<div class="flex flex-col justify-center">
+<p class="text-[#181113] dark:text-white text-base font-bold leading-tight">Driving</p>
+<p class="text-[#89616b] dark:text-[#a07c85] text-sm font-normal leading-tight mt-1">going on a long drive to the mountains with u</p>
+</div>
+</div>
+<div class="shrink-0">
+<label class="relative flex cursor-pointer items-center justify-center">
+<input class="heart-checkbox peer sr-only" type="checkbox"/>
+<span class="material-symbols-outlined text-[#e6dbde] peer-checked:text-primary transition-all duration-300 text-3xl hover:scale-110 active:scale-90" style="font-variation-settings: 'FILL' 1">favorite</span>
+</label>
+</div>
+</div>
+</div>
+</section>
+<section class="mt-8">
+<h2 class="text-[#181113] dark:text-white text-lg font-bold leading-tight mb-4">A Note From My Heart</h2>
+<div class="relative p-6 rounded-xl bg-[#fdfaf9] border-dashed border-2 border-dusty-rose/50 overflow-hidden group cursor-pointer">
+<div class="absolute inset-0 bg-white/60 backdrop-blur-md flex items-center justify-center transition-all duration-500 group-hover:opacity-0 pointer-events-none z-10">
+<p class="text-primary font-bold flex items-center gap-2">
+<span class="material-symbols-outlined">lock</span> Tap to Reveal
+                        </p>
+</div>
+<p class="text-[#5c4048] italic leading-relaxed text-sm">
+                        "I was looking at the moon tonight and remembered how you said it's the same one I'm looking at. I can't wait until we're looking at it from the same window. You are my home, no matter where we are."
+                    </p>
+<p class="text-right text-dusty-rose font-bold text-xs mt-4">— Forever Yours</p>
+</div>
+</section>
+<section>
+<div class="flex items-center justify-between">
+<h2 class="text-[#181113] dark:text-white text-[22px] font-bold leading-tight tracking-[-0.015em] py-4">Little Adventures</h2>
+<span class="text-xs font-semibold text-primary bg-primary/10 px-2 py-1 rounded-full uppercase tracking-wider">Exciting</span>
+</div>
+<div class="grid gap-3">
+<div class="glass-card flex items-center gap-4 px-4 min-h-[80px] py-3 justify-between rounded-xl dark:bg-white/5">
+<div class="flex items-center gap-4">
+<div class="text-[#181113] dark:text-white flex items-center justify-center rounded-lg bg-gray-100 dark:bg-white/10 shrink-0 size-12">
+<span class="material-symbols-outlined">map</span>
+</div>
+<div class="flex flex-col justify-center">
+<p class="text-[#181113] dark:text-white text-base font-bold leading-tight">Getting Lost Together</p>
+<p class="text-[#89616b] dark:text-[#a07c85] text-sm font-normal leading-tight mt-1">Driving without a GPS until we find a hidden gem.</p>
+</div>
+</div>
+<div class="shrink-0">
+<label class="relative flex cursor-pointer items-center justify-center">
+<input class="heart-checkbox peer sr-only" type="checkbox"/>
+<span class="material-symbols-outlined text-[#e6dbde] peer-checked:text-primary transition-all duration-300 text-3xl hover:scale-110 active:scale-90" style="font-variation-settings: 'FILL' 1">favorite</span>
+</label>
+</div>
+</div>
+</div>
+</section>
+<div class="relative flex items-center pb-8">
+<input class="w-full bg-gray-100 dark:bg-white/10 border-none rounded-full py-3 px-5 pr-14 text-sm focus:ring-2 focus:ring-primary/50 dark:text-white placeholder-gray-400" placeholder="Add a new dream together..." type="text"/>
+<button class="absolute right-2 bg-primary text-white size-10 rounded-full flex items-center justify-center hover:bg-primary/90 transition-colors">
+<span class="material-symbols-outlined text-xl">add</span>
+</button>
+</div>
+</div>
+<div class="fixed bottom-0 left-0 right-0 z-50 max-w-md mx-auto liquid-glass pb-6 pt-3 px-4 shadow-[0_-10px_30px_rgba(0,0,0,0.05)]">
+<div class="flex flex-col gap-3">
+<div class="w-full px-1">
+<div class="relative w-full h-1 bg-gray-200 dark:bg-white/10 rounded-full overflow-visible" id="progress-container" onclick="seek(event)">
+<div id="progress-fill" class="absolute left-0 top-0 h-full bg-sage rounded-full" style="width: 0%"></div>
+<div id="progress-dot" class="absolute top-1/2 -translate-y-1/2 w-3 h-3 bg-sage border-2 border-white rounded-full shadow-sm" style="left: 0%"></div>
+</div>
+<div class="flex justify-between mt-2">
+<span id="current-time" class="text-[10px] font-semibold text-sage">0:00</span>
+<span id="duration" class="text-[10px] font-semibold text-sage/60 dark:text-white/40">0:00</span>
+</div>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="relative group">
+<img alt="Album Art" class="size-12 rounded-lg object-cover shadow-md" src="IMG-20260124-WA0004.jpg">
+<div class="absolute inset-0 bg-sage/10 rounded-lg pointer-events-none"></div>
+</div>
+<div class="flex flex-col">
+<p id="song-title" class="text-sm font-bold text-[#181113] dark:text-white truncate max-w-[140px]">Perfect</p>
+<p id="artist-name" class="text-xs font-medium text-sage truncate max-w-[140px]">Ed Sheeran</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button onclick="skipPrevious()" class="text-sage/60 hover:text-sage transition-colors">
+<span class="material-symbols-outlined text-2xl">skip_previous</span>
+</button>
+<button onclick="togglePlayPause()" class="bg-sage text-white size-10 rounded-full flex items-center justify-center shadow-lg shadow-sage/20 active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-2xl play-pause-icon" style="font-variation-settings: 'FILL' 1">pause</span>
+</button>
+<button onclick="skipNext()" class="text-sage/60 hover:text-sage transition-colors">
+<span class="material-symbols-outlined text-2xl">skip_next</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<audio id="audio" src="SpotiDownloader.com - Perfect - Instrumental - Ed Sheeran.mp3" preload="metadata"></audio>
+
+<script>
+// Audio controls
+const audio = document.getElementById('audio');
+
+function togglePlayPause() {
+  const icon = document.querySelector('.play-pause-icon');
+  if (audio.paused) {
+    audio.play();
+    icon.textContent = 'pause';
+  } else {
+    audio.pause();
+    icon.textContent = 'play_arrow';
+  }
+}
+
+function skipPrevious() {
+  audio.currentTime = 0;
+}
+
+function skipNext() {
+  audio.currentTime = 0;
+}
+
+function seek(event) {
+  const rect = event.currentTarget.getBoundingClientRect();
+  const clickX = event.clientX - rect.left;
+  const width = rect.width;
+  const seekTime = (clickX / width) * audio.duration;
+  audio.currentTime = seekTime;
+}
+
+function formatTime(seconds) {
+  const mins = Math.floor(seconds / 60);
+  const secs = Math.floor(seconds % 60);
+  return `${mins}:${secs.toString().padStart(2, '0')}`;
+}
+
+audio.addEventListener('loadedmetadata', () => {
+  document.getElementById('duration').textContent = formatTime(audio.duration);
+});
+
+audio.addEventListener('timeupdate', () => {
+  const progress = (audio.currentTime / audio.duration) * 100;
+  document.getElementById('progress-fill').style.width = progress + '%';
+  document.getElementById('progress-dot').style.left = progress + '%';
+  document.getElementById('current-time').textContent = formatTime(audio.currentTime);
+});
+
+// Bucket list adding
+document.querySelector('button.absolute').addEventListener('click', function() {
+  const input = document.querySelector('input[placeholder="Add a new dream together..."]');
+  const value = input.value.trim();
+  if (value) {
+    const newItem = createItem(value);
+    const grid = document.querySelector('.grid.gap-3');
+    grid.appendChild(newItem);
+    input.value = '';
+  }
+});
+
+function createItem(title) {
+  const newItem = document.createElement('div');
+  newItem.className = 'glass-card flex items-center gap-4 px-4 min-h-[80px] py-3 justify-between rounded-xl dark:bg-white/5';
+  newItem.innerHTML = `
+<div class="flex items-center gap-4">
+<div class="text-[#181113] dark:text-white flex items-center justify-center rounded-lg bg-gray-100 dark:bg-white/10 shrink-0 size-12">
+<span class="material-symbols-outlined">lightbulb</span>
+</div>
+<div class="flex flex-col justify-center">
+<p class="text-[#181113] dark:text-white text-base font-bold leading-tight">${title}</p>
+<p class="text-[#89616b] dark:text-[#a07c85] text-sm font-normal leading-tight mt-1">A new dream to cherish together.</p>
+</div>
+</div>
+<div class="shrink-0 flex items-center gap-2">
+<button class="delete-btn text-red-500 hover:text-red-700 transition-colors" title="Delete item">
+<span class="material-symbols-outlined text-lg">delete</span>
+</button>
+<label class="relative flex cursor-pointer items-center justify-center">
+<input class="heart-checkbox peer sr-only" type="checkbox"/>
+<span class="material-symbols-outlined text-[#e6dbde] peer-checked:text-primary transition-all duration-300 text-3xl hover:scale-110 active:scale-90" style="font-variation-settings: 'FILL' 1">favorite</span>
+</label>
+</div>
+  `;
+  // Add delete event
+  newItem.querySelector('.delete-btn').addEventListener('click', function() {
+    newItem.remove();
+  });
+  return newItem;
+}
+</script>
+
+</body></html>

@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Virtual Love Scrapbook</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#e8305e",
+                        "sage": "#7a9482",
+                        "dusty-rose": "#d4a3a3",
+                        "cream": "#fdfaf6",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#211115",
+                    },
+                    fontFamily: {
+                        "display": ["Newsreader", "serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                    animation: {
+                        'flicker': 'flicker 2s infinite ease-in-out',
+                        'dash': 'dash 3s linear infinite',
+                        'glow-pulse': 'glow-pulse 2s infinite ease-in-out',
+                    },
+                    keyframes: {
+                        flicker: {
+                            '0%, 100%': { opacity: '1', transform: 'scale(1) translate(-50%, -50%)' },
+                            '50%': { opacity: '0.6', transform: 'scale(1.15) translate(-43%, -43%)' },
+                        },
+                        dash: {
+                            to: { strokeDashoffset: '-20' }
+                        },
+                        'glow-pulse': {
+                            '0%, 100%': { opacity: '0.6', strokeWidth: '2', filter: 'drop-shadow(0 0 5px rgba(232,48,94,0.4))' },
+                            '50%': { opacity: '1', strokeWidth: '3', filter: 'drop-shadow(0 0 12px rgba(232,48,94,0.8))' },
+                        }
+                    }
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        .glass {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .dark .glass {
+            background: rgba(33, 17, 21, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .liquid-glass {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.2));
+            backdrop-filter: blur(25px) saturate(200%);
+            -webkit-backdrop-filter: blur(25px) saturate(200%);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 8px 32px 0 rgba(232, 48, 94, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        .liquid-glass::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at center, rgba(232, 48, 94, 0.05) 0%, transparent 50%),
+                        radial-gradient(circle at 30% 30%, rgba(122, 148, 130, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        .masonry-item {
+            break-inside: avoid;
+            margin-bottom: 1rem;
+        }
+        .polaroid-shadow {
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+        .quest-map-bg {
+            background-image: radial-gradient(#d4a3a3 0.5px, transparent 0.5px);
+            background-size: 15px 15px;
+        }
+        #hug-button:focus-within, #hug-button:active {
+            background-color: white !important;
+            color: #e8305e !important;
+        }
+        #hug-button:focus-within .button-text, #hug-button:active .button-text {
+            display: none;
+        }
+        #hug-button:focus-within .sent-text, #hug-button:active .sent-text {
+            display: flex;
+        }
+        .sent-text {
+            display: none;
+        }
+    </style>
+<style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-[#181113] dark:text-white selection:bg-primary/30">
+<nav class="sticky top-0 z-50 glass flex items-center p-4 justify-between">
+<div class="text-primary flex size-10 shrink-0 items-center justify-center">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1">favorite</span>
+</div>
+<h2 class="text-[#181113] dark:text-white text-lg font-bold leading-tight tracking-tight flex-1 text-center italic">Our Virtual Scrapbook</h2>
+<div class="flex w-10 items-center justify-end">
+<button class="flex cursor-pointer items-center justify-center rounded-full h-10 w-10 bg-transparent text-[#181113] dark:text-white">
+<span class="material-symbols-outlined">share</span>
+</button>
+</div>
+</nav>
+<header class="relative overflow-hidden pt-4 px-4">
+<div class="@container">
+<div class="flex min-h-[520px] flex-col gap-6 bg-cover bg-center bg-no-repeat rounded-xl items-center justify-center p-8 relative overflow-hidden" style='background-image: linear-gradient(rgba(232, 48, 94, 0.1), rgba(255, 255, 255, 0.2)), url("https://lh3.googleusercontent.com/aida-public/AB6AXuB-XcUEZTcJ95QdwIbnI0jSEPa-2rTNrgI6Wz2Il0cQR0f3XE4_NjWxWMOJVK3X_VNtuY7_6C3ElLwkVRLgJiUsS-Y4am26wIQbMWwToyUJWRMceOkFruV9W0xZyExTEKPpR0wPVJBP04_jGtL6Jzb1Pf4wEchQWYjAhM3DdWhZurA_VLxNOEFPB7QL9Rjj7I0I8boSTZlWf75qH7H_RlZ1FonYECxlx8708qqpmlrIHwVBxnfz_dkABXaC2IfUNMLSJaikZQBocKwZ");'>
+<div class="absolute inset-0 bg-white/10 backdrop-blur-[2px]"></div>
+<div class="flex flex-col gap-4 text-center relative z-10">
+<h1 class="text-[#181113] text-4xl font-light italic leading-tight tracking-tight @[480px]:text-5xl">
+                        "Distance means so little when someone means so much"
+                    </h1>
+<p class="text-primary font-medium tracking-widest uppercase text-xs">Our Love Story, Digitally Preserved</p>
+</div>
+<button class="relative z-10 flex min-w-[200px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 px-8 bg-primary text-white text-base font-bold shadow-lg shadow-primary/20 hover:scale-105 transition-all" id="hug-button">
+<div class="button-text flex items-center">
+<span class="material-symbols-outlined mr-2">favorite</span>
+<span>Send a Virtual Hug</span>
+</div>
+<div class="sent-text items-center">
+<span>Virtual Hug Sent ✔</span>
+</div>
+</button>
+</div>
+</div>
+</header>
+<section class="py-12 px-6 text-center">
+<h3 class="text-sm font-medium tracking-[0.2em] uppercase mb-8 opacity-60">Until this valentine's day</h3>
+<div class="flex gap-4 justify-center">
+<div class="flex flex-col items-center gap-3">
+<div class="flex h-16 w-16 items-center justify-center rounded-full border border-primary/20 glass">
+<p class="text-primary text-xl font-bold" id="days-count">00</p>
+</div>
+<p class="text-[10px] font-bold uppercase tracking-widest opacity-60">Days</p>
+</div>
+<div class="flex flex-col items-center gap-3">
+<div class="flex h-16 w-16 items-center justify-center rounded-full border border-primary/20 glass">
+<p class="text-primary text-xl font-bold" id="hours-count">00</p>
+</div>
+<p class="text-[10px] font-bold uppercase tracking-widest opacity-60">Hours</p>
+</div>
+<div class="flex flex-col items-center gap-3">
+<div class="flex h-16 w-16 items-center justify-center rounded-full border border-primary/20 glass">
+<p class="text-primary text-xl font-bold" id="mins-count">00</p>
+</div>
+<p class="text-[10px] font-bold uppercase tracking-widest opacity-60">Mins</p>
+</div>
+<div class="flex flex-col items-center gap-3">
+<div class="flex h-16 w-16 items-center justify-center rounded-full border border-primary/20 glass">
+<p class="text-primary text-xl font-bold" id="secs-count">00</p>
+</div>
+<p class="text-[10px] font-bold uppercase tracking-widest opacity-60">Secs</p>
+</div>
+</div>
+<script>
+            function updateCountdown() {
+                const now = new Date();
+                const currentYear = now.getFullYear();
+                let vDay = new Date(currentYear, 1, 14); 
+                if (now > vDay) {
+                    vDay = new Date(currentYear + 1, 1, 14);
+                }
+                const diff = vDay - now;
+                const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+                const h = Math.floor((diff / (1000 * 60 * 60)) % 24);
+                const m = Math.floor((diff / (1000 * 60)) % 60);
+                const s = Math.floor((diff / 1000) % 60);
+                document.getElementById('days-count').innerText = d.toString().padStart(2, '0');
+                document.getElementById('hours-count').innerText = h.toString().padStart(2, '0');
+                document.getElementById('mins-count').innerText = m.toString().padStart(2, '0');
+                document.getElementById('secs-count').innerText = s.toString().padStart(2, '0');
+            }
+            setInterval(updateCountdown, 1000);
+            updateCountdown();
+        </script>
+</section>
+<section class="px-4 py-8">
+<div class="flex items-center justify-between px-2 mb-4">
+<h2 class="text-2xl font-bold italic">Our Journey Map</h2>
+<div class="flex flex-col items-end">
+<span class="text-xs font-bold text-primary uppercase tracking-tighter">Quest Level: Forever</span>
+<span class="text-[10px] font-medium text-sage opacity-80 italic">3.5 km to heartlink</span>
+</div>
+</div>
+<div class="relative">
+<div class="w-full aspect-[4/3] bg-center bg-no-repeat bg-cover rounded-3xl polaroid-shadow border-4 border-white dark:border-zinc-800 relative overflow-hidden quest-map-bg shadow-inner" style='background-image: linear-gradient(rgba(248, 246, 246, 0.94), rgba(248, 246, 246, 0.94)), url("https://lh3.googleusercontent.com/aida-public/AB6AXuCjobgbfNja17Gi2G-hRo1RxVR7t9uOfEFIkzCsZKjeDmehy_c7otWYyvza1pmXogbdQSz9xFJsesnbztpAcDt1Ow_1DaezEyZ-5PbortrR4JQmmwgJauF6iJ3YURC53ScFduy8wLG3LwLry1ig-qiJ-kvwuDTQj9DzpP8HCZetKgbaFWzvM971MR1K6mQdDNnYKOxKFFZ03kFA_KOec4lSmtbvQ0z0yMZtOn45hoh754EYiMpVgra80YQc44LE-HGK0paIlZwLlgBA");'>
+<svg class="absolute inset-0 w-full h-full pointer-events-none" preserveAspectRatio="none" viewBox="0 0 400 300">
+<line class="animate-dash animate-glow-pulse" stroke="#e8305e" stroke-dasharray="6,4" stroke-width="2" x1="30%" x2="70%" y1="60%" y2="46.7%"></line>
+</svg>
+<div class="absolute top-[60%] left-[30%] -translate-x-1/2 -translate-y-1/2 z-10">
+<div class="relative">
+<div class="absolute inset-0 size-8 bg-primary/20 rounded-full blur-md animate-flicker"></div>
+<div class="size-4 bg-primary rounded-full border-2 border-white shadow-lg animate-flicker relative z-10"></div>
+<div class="absolute -bottom-6 left-1/2 -translate-x-1/2 whitespace-nowrap bg-white/80 dark:bg-zinc-800/80 px-2 py-0.5 rounded-full text-[8px] font-bold uppercase tracking-widest border border-primary/20">Me</div>
+</div>
+</div>
+<div class="absolute top-[46.7%] left-[70%] -translate-x-1/2 -translate-y-1/2 z-10">
+<div class="relative">
+<div class="absolute inset-0 size-8 bg-primary/20 rounded-full blur-md animate-flicker"></div>
+<div class="size-4 bg-primary rounded-full border-2 border-white shadow-lg animate-flicker relative z-10"></div>
+<div class="absolute -top-6 left-1/2 -translate-x-1/2 whitespace-nowrap bg-white/80 dark:bg-zinc-800/80 px-2 py-0.5 rounded-full text-[8px] font-bold uppercase tracking-widest border border-primary/20">You</div>
+</div>
+</div>
+<div class="absolute top-4 left-4 flex gap-1">
+<div class="size-2 rounded-full bg-primary animate-pulse"></div>
+<div class="size-2 rounded-full bg-primary/40"></div>
+<div class="size-2 rounded-full bg-primary/20"></div>
+</div>
+<div class="absolute bottom-4 right-4 text-[8px] font-mono opacity-30">
+                    COORD_SYNC_ACTIVE
+                </div>
+</div>
+</div>
+</section>
+<section class="px-4 py-8">
+<h2 class="text-2xl font-bold italic px-2 mb-6 text-left">Memories on Repeat</h2>
+<div class="columns-2 gap-4">
+<div onclick="window.open('hwm.html', '_blank')" class="masonry-item bg-white dark:bg-zinc-900 p-2 pb-6 polaroid-shadow rounded-sm -rotate-2 transform hover:rotate-0 transition-all cursor-pointer">
+<img class="w-full aspect-[4/5] object-cover mb-3 grayscale-[20%]" src="hwm.PNG">
+<p class="text-center text-sm font-medium italic text-zinc-600 dark:text-zinc-400">how we met</p>
+</div>
+<div onclick="window.open('bl.html', '_blank')" class="masonry-item bg-white dark:bg-zinc-900 p-2 pb-6 polaroid-shadow rounded-sm rotate-3 transform hover:rotate-0 transition-all cursor-pointer">
+<img class="w-full aspect-square object-cover mb-3 grayscale-[20%]" src="image.png">
+<p class="text-center text-sm font-medium italic text-zinc-600 dark:text-zinc-400">things to do with me</p>
+</div>
+<div class="masonry-item bg-white dark:bg-zinc-900 p-2 pb-6 polaroid-shadow rounded-sm -rotate-1 transform hover:rotate-0 transition-all block cursor-pointer group" onclick="window.open('pihoy.html', '_blank')">
+<div class="w-full aspect-[3/4] mb-3 overflow-hidden">
+<img class="w-full h-full object-cover grayscale-[10%] group-hover:grayscale-0 transition-all pointer-events-none" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjQwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ0cmFuc3BhcmVudCIvPjwvc3ZnPg==">
+</div>
+<p class="text-center text-sm font-medium italic text-zinc-600 dark:text-zinc-400">the photos i have of you</p>
+</div>
+<div onclick="window.open('wtgot.html', '_blank')" class="masonry-item bg-white dark:bg-zinc-900 p-2 pb-6 polaroid-shadow rounded-sm rotate-1 transform hover:rotate-0 transition-all cursor-pointer">
+<img class="w-full aspect-[4/5] object-cover mb-3 grayscale-[20%]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCFWVV12wFwOksjnAUu0nWFJoOy9-BzPS-s9iB00ea9RgzZz1bV4p54dkaNaoJEGCiZpj7fAE5nBBV-Jt8t92OlGF0QP-kuWdyai_LCKjw74x02VTFuvTFpcGsKfjDoJDgQe5nQnLarYmFSdrJGyyy4mE8C87omSBFhqyuTx2BADrV8ZZW0--6XzoqMH6VBa12ZmD0OoCifFbIN0uvgNKtBmfTs2FPpj0yvaruTXfdxf_gHtxyTlhmySausegG7jj8pxTcQgLXaTBsl"/>
+<p class="text-center text-sm font-medium italic text-zinc-600 dark:text-zinc-400">ways to grow old together</p>
+</div>
+</div>
+</section>
+<section class="px-4 py-12 bg-cream/50 dark:bg-background-dark/50">
+<h2 class="text-2xl font-bold italic px-2 mb-8 text-center">Open When...</h2>
+<div class="grid grid-cols-2 gap-4 max-w-md mx-auto">
+<button class="bg-white/80 dark:bg-white/5 p-6 rounded-2xl flex flex-col items-center gap-3 text-center shadow-sm border border-white/40 dark:border-white/10 transition-all hover:shadow-md hover:-translate-y-1 active:scale-95 group" onclick="window.location.href='missme.html'">
+<div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-1 group-hover:bg-primary/20 transition-colors">
+<span class="material-symbols-outlined text-3xl text-primary">mail</span>
+</div>
+<div class="space-y-1">
+<p class="text-sm font-bold italic">You miss me</p>
+<p class="text-[10px] uppercase tracking-widest opacity-40">Open Letter</p>
+</div>
+</button>
+<button class="bg-white/80 dark:bg-white/5 p-6 rounded-2xl flex flex-col items-center gap-3 text-center shadow-sm border border-white/40 dark:border-white/10 transition-all hover:shadow-md hover:-translate-y-1 active:scale-95 group" onclick="window.location.href='youresad.html'">
+<div class="w-12 h-12 rounded-full bg-sage/10 flex items-center justify-center mb-1 group-hover:bg-sage/20 transition-colors">
+<span class="material-symbols-outlined text-3xl text-sage">cloud</span>
+</div>
+<div class="space-y-1">
+<p class="text-sm font-bold italic">You're sad</p>
+<p class="text-[10px] uppercase tracking-widest opacity-40">a warm loveletter for you</p>
+</div>
+</button>
+<button class="bg-white/80 dark:bg-white/5 p-6 rounded-2xl flex flex-col items-center gap-3 text-center shadow-sm border border-white/40 dark:border-white/10 transition-all hover:shadow-md hover:-translate-y-1 active:scale-95 group" onclick="window.location.href='wehungup.html'">
+<div class="w-12 h-12 rounded-full bg-dusty-rose/10 flex items-center justify-center mb-1 group-hover:bg-dusty-rose/20 transition-colors">
+<span class="material-symbols-outlined text-3xl text-dusty-rose">call</span>
+</div>
+<div class="space-y-1">
+<p class="text-sm font-bold italic">We hung up</p>
+<p class="text-[10px] uppercase tracking-widest opacity-40">Just Before Bed</p>
+</div>
+</button>
+<button class="bg-white/80 dark:bg-white/5 p-6 rounded-2xl flex flex-col items-center gap-3 text-center shadow-sm border border-white/40 dark:border-white/10 transition-all hover:shadow-md hover:-translate-y-1 active:scale-95 group" onclick="window.location.href='cs.html'">
+<div class="w-12 h-12 rounded-full bg-primary/5 flex items-center justify-center mb-1 group-hover:bg-primary/10 transition-colors">
+<span class="material-symbols-outlined text-3xl text-primary/60">nights_stay</span>
+</div>
+<div class="space-y-1">
+<p class="text-sm font-bold italic">Can't sleep</p>
+<p class="text-[10px] uppercase tracking-widest opacity-40">Midnight Story</p>
+</div>
+</button>
+</div>
+</section>
+<div class="h-36"></div>
+<div class="fixed bottom-0 left-0 right-0 z-[100] p-4 pb-8 pointer-events-none">
+<div class="max-w-md mx-auto liquid-glass rounded-3xl p-4 pointer-events-auto">
+<div class="w-full bg-primary/10 h-1 rounded-full mb-4 overflow-hidden" id="progress-container" onclick="seek(event)">
+<div id="progress-bar" class="bg-primary h-full rounded-full relative" style="width: 0%">
+<div class="absolute right-0 top-1/2 -translate-y-1/2 size-2.5 bg-white rounded-full shadow-md border border-primary/20"></div>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative size-12 flex-shrink-0 group">
+<img class="absolute inset-0 size-full rounded-xl object-cover border border-white/40 shadow-sm" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzkbCzxPu0jPrMf3Uvn1pFMjOoBplSyMee2ddzOq8E_7Uw3M_lmUT-zUgPQuQ-eMxCQblu0ZQWdrWQIczrkWptKgymXhjzracaH9psxzxKjgj2hjmuBdHkgSumujcxGlMoWaQkRT618xR1hNaj_qv80eelm71OyCFfs0rd8_b9UD19pQsLt4JQbHGQ4imnjs8N5Q0MTt4-Uk0Ln7-96YxiVmHxdt6jlvonSDixVcO4DhNUR5_9V-MZsaAP09_MHor1V8IkX-ASZZHG"/>
+<div class="absolute inset-0 bg-primary/10 rounded-xl flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-white text-sm" style="font-variation-settings: 'FILL' 1">music_note</span>
+</div>
+</div>
+<div class="flex-1 min-w-0">
+<h4 class="text-sm font-bold italic truncate text-[#181113] dark:text-white song-title">Our Song</h4>
+<p class="text-[10px] uppercase tracking-widest opacity-60 truncate artist-name">Artist Name</p>
+</div>
+<div class="flex items-center gap-1">
+<button onclick="skipPrevious()" class="p-2 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-2xl">skip_previous</span>
+</button>
+<button onclick="togglePlayPause()" class="size-11 rounded-full bg-primary text-white flex items-center justify-center shadow-lg shadow-primary/30 active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-2xl play-pause-icon" style="font-variation-settings: 'FILL' 1">pause</span>
+</button>
+<button onclick="skipNext()" class="p-2 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-2xl">skip_next</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+
+<audio id="audio" src="our-song.mp3" preload="none"></audio>
+
+<script>
+const songs = [
+  {src: 'SpotiDownloader.com - Lover - Taylor Swift.mp3', title: 'Lover', artist: 'Taylor Swift'},
+  {src: 'SpotiDownloader.com - Heavenly - Cigarettes After Sex.mp3', title: 'Heavenly', artist: 'Cigarettes After Sex'}
+  // Add more songs here: {src: 'song2.mp3', title: 'Song 2', artist: 'Artist 2'}
+];
+
+let currentSong = 0;
+
+const audio = document.getElementById('audio');
+
+function loadSong(index) {
+  audio.src = songs[index].src;
+  document.querySelector('.song-title').textContent = songs[index].title;
+  document.querySelector('.artist-name').textContent = songs[index].artist;
+  audio.load();
+}
+
+function togglePlayPause() {
+  const icon = document.querySelector('.play-pause-icon');
+  if (audio.paused) {
+    audio.play();
+    icon.textContent = 'pause';
+  } else {
+    audio.pause();
+    icon.textContent = 'play_arrow';
+  }
+}
+
+function skipPrevious() {
+  currentSong = (currentSong - 1 + songs.length) % songs.length;
+  loadSong(currentSong);
+  audio.play();
+  document.querySelector('.play-pause-icon').textContent = 'pause';
+}
+
+function skipNext() {
+  currentSong = (currentSong + 1) % songs.length;
+  loadSong(currentSong);
+  audio.play();
+  document.querySelector('.play-pause-icon').textContent = 'pause';
+}
+
+function seek(event) {
+  const rect = event.currentTarget.getBoundingClientRect();
+  const clickX = event.clientX - rect.left;
+  const width = rect.width;
+  const seekTime = (clickX / width) * audio.duration;
+  audio.currentTime = seekTime;
+}
+
+audio.addEventListener('timeupdate', () => {
+  const progress = (audio.currentTime / audio.duration) * 100;
+  document.getElementById('progress-bar').style.width = progress + '%';
+});
+
+audio.addEventListener('ended', () => {
+  skipNext();
+});
+
+// Load the first song
+loadSong(currentSong);
+</script>
+
+</body></html>

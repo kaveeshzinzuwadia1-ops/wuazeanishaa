@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#f2930d",
+                        "background-light": "#f8f7f5",
+                        "background-dark": "#221b10",
+                        "espresso": "#2e1a05",
+                        "latte": "#e9dcc9",
+                        "napkin": "#fffdfa",
+                        "sage-card": "#8DA18D"
+                    },
+                    fontFamily: {
+                        "display": ["Newsreader", "serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        .paper-grain {
+            background-color: #f8f7f5;
+            background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuCQ4KpsaD2LTDZT8vueQsgNjE81zkaU27dezPRo8qDPVbo8AzN3RhYh3g5RvcLsmGAcgzN22QII6y_DiU0Lj9j9KeSN6mxUGs9yGJ1SyrKGdO5YYABmlfshuWj8wdkL1DOJEh4d_vTalHjpn4h8V0m0vyZXnIFzzK2kskql8Sk_mnier1_1XW1RX73rXNWF_qMHsnYdHTWv_9KQGW0SRPww8CSOGUK8WMMoJCu0TcUC3nNtuXovi7hjSsPg3oehb0gLbBhbWDeAvFmr)
+        }
+        .sage-glass {
+            background-color: rgba(141, 161, 141, 0.85);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            box-shadow: 0 8px 32px 0 rgba(46, 26, 5, 0.1);
+        }
+        .fade-in-slow {
+            animation: fadeIn 2.5s ease-in forwards
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            } to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-display bg-background-light dark:bg-background-dark text-espresso dark:text-background-light min-h-screen paper-grain">
+<div class="relative flex h-auto w-full flex-col group/design-root overflow-x-hidden">
+<div class="flex items-center p-4 pb-2 justify-between">
+<div class="text-espresso dark:text-background-light flex size-12 shrink-0 items-center">
+<span class="material-symbols-outlined cursor-pointer">arrow_back_ios</span>
+</div>
+<h2 class="text-espresso dark:text-background-light text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center font-display">Our Beginning</h2>
+<div class="flex w-12 items-center justify-end">
+<button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 bg-transparent text-espresso dark:text-background-light gap-2 text-base font-bold leading-normal tracking-[0.015em] min-w-0 p-0">
+<span class="material-symbols-outlined text-primary fill-primary">favorite</span>
+</button>
+</div>
+</div>
+</div>
+<main class="flex flex-col items-center px-6 pt-4 pb-48 max-w-md mx-auto fade-in-slow">
+<div class="w-full @container">
+<div class="@[480px]:py-3">
+<div class="w-full bg-center bg-no-repeat bg-cover flex flex-col justify-end overflow-hidden rounded-xl min-h-64 shadow-lg border-4 border-white" style='background-image: linear-gradient(0deg, rgba(61, 43, 31, 0.4) 0%, rgba(0, 0, 0, 0) 50%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuCY8xwA9RbYalhwgzXFTkU_JYQpahMdifpithXCm1h63-8pbZILlx9Rrgh3GSor165R1jJBnNJds5X3rmPEo8-vRBvMeX9ySNdHjA4YCBckvGGl9r17aj9inbHhH7NxXvCAVqXlomtpUSnQLXU-b2szuq5gX8h1iKXx_w_uZDAbd1FmcuSg5cBeGFxu2XsBcwa-v-diYt7u51W8yaJuzKR0gLqCyVWgjRRS4aqh4lvyGn2vWwTXBHZ8Nilus0YtvYVvO4wsssNqlqaT");'>
+</div>
+</div>
+</div>
+<div class="relative mt-8 w-full">
+<div class="relative sage-glass p-8 rounded-lg border border-white/20 flex flex-col items-center text-center transform -rotate-1">
+<div class="w-12 h-0.5 bg-espresso/20 mb-6 rounded-full"></div>
+<h2 class="text-espresso tracking-tight text-3xl italic font-medium leading-tight pb-4">
+                    It started with a simple hello...
+                </h2>
+<div class="space-y-4">
+<p class="text-espresso text-lg italic font-normal leading-relaxed">
+                        with one conversation, one hint, one topic but it eventually evolved into longer and longer convos which eventually lead to the starting of this relationship which has boosted my happiness and my work ethic and motivation by alot and i hope it has brought you happiness too.
+                    </p>
+</div>
+<div class="mt-8 pt-6 border-t border-espresso/10 w-full italic text-espresso/70">
+<p class="text-base font-semibold">The Corner Café</p>
+</div>
+</div>
+</div>
+</main>
+<div class="fixed bottom-0 left-0 right-0 p-4 pb-8 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md border-t border-espresso/10">
+<div class="max-w-md mx-auto flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="size-10 rounded bg-espresso flex items-center justify-center text-primary overflow-hidden">
+<img alt="J'ai Tout donner" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDAvKHV9rigY2lO2llzpQt8LavVhDhrt3-VXT_eveG-OU3-P4qzEFVAu9GeKgATVIYIE3HLo1Iv6AW7-93NKdXN8zjnAErZFsu0rk18YFRvEbHFZPSmpmgTmQeTj9TSy-ZMGUL554Dbhqo8NWljx1iD1yZtgftiuaXCGigw6elYTTCcq1W6HRPfjvFfpnnJdo5IO_-fOxk3RdfAfN-AOyNGY_H1JaVybpr08AS5Ou4GsXZQO-noKwy-cnPFrgY7hbhRzTDAryrhY-ra"/>
+</div>
+<div>
+<p class="text-espresso dark:text-background-light text-sm font-bold uppercase tracking-tight">J'ai Tout donner</p>
+<p class="text-espresso/60 dark:text-background-light/60 text-xs">Memory Soundscape</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-espresso dark:text-background-light cursor-pointer">skip_previous</span>
+<div class="size-10 rounded-full bg-espresso dark:bg-primary flex items-center justify-center text-white cursor-pointer">
+<span class="material-symbols-outlined">pause</span>
+</div>
+<span class="material-symbols-outlined text-espresso dark:text-background-light cursor-pointer">skip_next</span>
+</div>
+</div>
+<div class="space-y-2">
+<div class="relative w-full h-1 bg-espresso/10 dark:bg-background-light/10 rounded-full overflow-hidden">
+<div class="absolute top-0 left-0 h-full bg-primary w-2/3"></div>
+</div>
+<div class="flex justify-between text-[10px] text-espresso/40 dark:text-background-light/40 uppercase tracking-widest font-bold">
+<span>1:24</span>
+<span>3:45</span>
+</div>
+</div>
+<div class="flex justify-center mt-1">
+<p class="text-sage-card font-display italic text-xs tracking-wide">Jan 6, 2026</p>
+</div>
+</div>
+</div>
+
+</body></html>
